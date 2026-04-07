@@ -1,0 +1,86 @@
+.stepperContainer {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.stepperLine {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  right: 40px;
+  height: 4px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.lineProgress {
+  height: 100%;
+  background: var(--verde-basilico);
+  transition: width 0.4s ease;
+}
+
+.steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.stepCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #999;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stepCircle.active {
+  border-color: var(--verde-basilico);
+  color: var(--verde-basilico);
+  background: #f1f8f1;
+}
+
+.stepLabel {
+  position: absolute;
+  top: 45px;
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.stepCircle.active .stepLabel {
+  color: var(--verde-basilico);
+  font-weight: 600;
+}
+
+.stepContent {
+  animation: fadeIn 0.4s ease-in;
+}
+
+/* --- EMPTY STATE --- */
+.emptyTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 10px 0;
+}
+
+.emptyText {
+  color: var(--text-muted);
+  max-width: 300px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
