@@ -81,7 +81,6 @@ const StepArea: React.FC<Props> = ({ onNext }) => {
                     src={`https://flagcdn.com/w80/${areaToCountryCode[area.strArea].toLowerCase()}.png`}
                     alt={area.strArea}
                     height="30"
-                    style={{ borderRadius: '4px', objectFit: 'cover' }}
                   />
                 ) : (
                   '🍽️'

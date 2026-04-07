@@ -4,16 +4,16 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
   flex: 1;
   animation: fadeIn 0.4s ease-out;
 }
 
 .emptyIconWrapper {
   background-color: var(--rosso-peperone-light);
-  padding: 20px;
+  padding: 1.25rem;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .emptyIcon {
@@ -23,12 +23,12 @@
 .resetBtn {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   background-color: var(--verde-basilico);
   color: white;
   border: none;
-  padding: 14px 28px;
-  border-radius: 15px;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -36,6 +36,6 @@
 
 .resetBtn:hover {
   filter: brightness(1.1);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(16, 185, 129, 0.2);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 0.9375rem rgba(16, 185, 129, 0.2);
 }

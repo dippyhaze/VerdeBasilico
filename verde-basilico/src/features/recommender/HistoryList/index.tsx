@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { HistoryItem } from '../../../types';
-import { Heart, XCircle, LayoutGrid } from 'lucide-react';
+import { Heart, XCircle, LayoutGrid, BadgeX } from 'lucide-react';
 import styles from './index.module.css';
 
 interface HistoryListProps {
@@ -22,7 +22,7 @@ const HistoryList: React.FC<HistoryListProps> = ({ items, onSelect }) => {
   if (items.length === 0) {
     return (
       <div className={styles.emptyState}>
-        <span className={styles.emptyIcon}></span>
+        <BadgeX size={48} className={styles.emptyIcon} />
         <p>La tua cronologia è vuota. Inizia a cercare!</p>
       </div>
     );
@@ -31,19 +31,19 @@ const HistoryList: React.FC<HistoryListProps> = ({ items, onSelect }) => {
   return (
     <div className={styles.historySection}>
       <div className={styles.filterBar}>
-        <button 
+        <button
           className={`${styles.filterBtn} ${filter === 'all' && styles.activeFilter}`}
           onClick={() => setFilter('all')}
         >
           <LayoutGrid size={14} /> All
         </button>
-        <button 
+        <button
           className={`${styles.filterBtn} ${filter === 'liked' && styles.activeFilter}`}
           onClick={() => setFilter('liked')}
         >
           <Heart size={14} /> Liked
         </button>
-        <button 
+        <button
           className={`${styles.filterBtn} ${filter === 'disliked' && styles.activeFilter}`}
           onClick={() => setFilter('disliked')}
         >
@@ -60,6 +60,7 @@ const HistoryList: React.FC<HistoryListProps> = ({ items, onSelect }) => {
               <span className={`${styles.badge} ${item.liked ? styles.liked : styles.disliked}`}>
                 {item.liked ? 'Liked' : 'Disliked'}
               </span>
+              <span className={styles.timestamp}>{new Date(item.timestamp).toLocaleString()}</span>
             </div>
           </div>
         ))}

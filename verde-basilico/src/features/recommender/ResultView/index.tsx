@@ -101,13 +101,13 @@ const ResultView: React.FC<ResultViewProps> = ({ onFeedback }) => {
         <div className={styles.imageWrapper}>
           <img src={recipe.strMealThumb} alt={recipe.strMeal} />
           <div className={styles.headerContent}>
-            <h1 className={styles.mainTitle}>{recipe.strMeal}</h1>
             <div className={styles.badgeRow}>
               <span className={styles.areaBadge}>
                 {recipe.strArea}
               </span>
               <span className={styles.categoryBadge}>{recipe.strCategory}</span>
             </div>
+            <h1 className={styles.mainTitle}>{recipe.strMeal}</h1>
           </div>
         </div>
 

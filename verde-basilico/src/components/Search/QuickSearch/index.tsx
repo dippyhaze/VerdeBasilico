@@ -71,7 +71,7 @@ const QuickSearch: React.FC<QuickSearchProps> = ({ onSelect }) => {
         <input
           type="text"
           className={styles.searchInput}
-          placeholder="Cerca una ricetta veloce..."
+          placeholder="Cerca una ricetta express..."
           value={term}
           onChange={(e) => setTerm(e.target.value)}
         />

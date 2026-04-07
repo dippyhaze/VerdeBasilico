@@ -1,15 +1,15 @@
 .stepperContainer {
   position: relative;
-  margin-bottom: 40px;
-  padding: 0 20px;
+  margin-bottom: 2.5rem;
+  padding: 0 1.25rem;
 }
 
 .stepperLine {
   position: absolute;
-  top: 20px;
-  left: 40px;
-  right: 40px;
-  height: 4px;
+  top: 1.25rem;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 0.25rem;
   background: #e0e0e0;
   z-index: 1;
 }
@@ -28,11 +28,11 @@
 }
 
 .stepCircle {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background: white;
-  border: 3px solid #e0e0e0;
+  border: 0.1875rem solid #e0e0e0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@
 
 .stepLabel {
   position: absolute;
-  top: 45px;
+  top: 2.8125rem;
   font-size: 0.75rem;
   color: #888;
   white-space: nowrap;
@@ -70,17 +70,17 @@
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--text-main);
-  margin: 0 0 10px 0;
+  margin: 0 0 0.625rem 0;
 }
 
 .emptyText {
   color: var(--text-muted);
-  max-width: 300px;
+  max-width: 18.75rem;
   line-height: 1.5;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(0.625rem); }
   to { opacity: 1; transform: translateY(0); }
 }

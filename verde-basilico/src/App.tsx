@@ -68,7 +68,6 @@ const App: React.FC = () => {
               />
             </div>
           </div>
-
           <div className={styles.accordionContent}>
             <HistoryList items={history}
               onSelect={(id) => navigate(`/recipe/${id}`)}
