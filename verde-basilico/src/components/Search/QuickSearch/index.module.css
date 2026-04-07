@@ -1,0 +1,77 @@
+.searchWrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.inputContainer {
+  position: relative; /* "Ancora" per la lista absolute */
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 14px 20px 14px 45px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  border-color: var(--verde-basilico);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+/* LA PARTE ANTI-REGRESSIONE */
+.suggestionsList {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
+  z-index: 100; /* Sta sopra al Wizard */
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestionItem:hover,
+.suggestionItem:focus {
+  background-color: var(--verde-basilico-soft);
+  outline: none;
+  box-shadow: inset 4px 0 0 var(--verde-basilico); /* Un indicatore laterale carino al focus */
+}
+
+.suggestionItem img {
+  width: 35px;
+  height: 35px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .searchWrapper {
+    max-width: 100%;
+  }
+}

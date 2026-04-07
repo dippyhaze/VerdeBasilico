@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.searchWrapper {
+  margin-bottom: 1rem;
+}
+
+.searchFilter {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.pill {
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* Fallback */
+  background-color: var(--verde-basilico-soft);
+}
+
+.pill[data-index="0"] {
+  background-color: var(--verde-basilico-soft);
+  color: var(--verde-foresta);
+}
+
+.pill[data-index="1"] {
+  background-color: var(--rosso-peperone-light);
+}
+
+.pill[data-index="2"] {
+  background-color: var(--blue-mirtillo-light);
+}
+
+.pill[data-index="3"] {
+  background-color: var(--giallo-miele-light);
+}
+
+.pill[data-index="4"] {
+  background-color: var(--blue-mirtillo-light);
+}
+
+.pill[data-index="5"] {
+  background-color: var(--verde-basilico-soft);
+}
+
+.pill.activePill {
+  background-color: var(--verde-basilico);
+  color: white;
+  border-color: var(--verde-basilico-dark);
+  font-weight: 700;
+  transform: scale(1.05);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.btnBack,
+.btnSubmit {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btnBack {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.btnSubmit {
+  flex: 1.5;
+  border: none;
+  background-color: var(--verde-basilico);
+  color: #ffffff;
+}
+
+.btnSubmit:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
