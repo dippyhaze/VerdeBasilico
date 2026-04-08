@@ -17,9 +17,9 @@
   justify-content: center;
 }
 
-.wizardCard,
-.historyCard {
+.wizardCard {
   min-width: 0;
+  min-height: 28.125rem;
   display: flex;
   flex-direction: column;
   background: white;
@@ -27,38 +27,6 @@
   padding: 1.875rem;
   box-shadow: 0 0.25rem 1.5625rem rgba(0, 0, 0, 0.04);
   border: 0.0625rem solid var(--border);
-}
-
-.wizardCard {
-  min-height: 28.125rem;
-}
-
-.historyCard {
-  max-height: 28.125rem;
-}
-
-.sectionTitle {
-  font-size: 1.1rem;
-  color: var(--verde-foresta);
-  margin: 0rem 0rem 1.25rem 0rem;
-  font-weight: 700;
-}
-
-.historyIcon {
-  display: none;
-  margin-right: 0.625rem;
-  color: var(--verde-foresta);
-}
-
-.chevronIcon {
-  display: none;
-  color: var(--verde-foresta);
-}
-
-.accordionContent {
-  overflow-y: auto;
-  scrollbar-width: none;
-  height: 100%;
 }
 
 @media (max-width: 64rem) {
@@ -72,47 +40,9 @@
     grid-column: 1;
   }
 
-  .historyCard {
-    order: 1;
-    /* Sposta la cronologia sopra il wizard */
-    min-height: 0;
-    /* Rimuove il vincolo di altezza su mobile */
-    padding: 1.25rem;
-  }
-
   .wizardCard {
     order: 2;
     /* Sposta il wizard sotto */
-  }
-
-  /* Stili per l'Accordion su Mobile */
-  .accordionHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-
-  .accordionContent {
-    max-height: 0;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-  }
-
-  .historyCard.isOpen .accordionContent {
-    max-height: 125rem;
-    /* Valore alto per permettere l'espansione */
-    opacity: 1;
-    margin-top: 1.25rem;
-  }
-
-  .chevronIcon,
-  .historyIcon {
-    display: block;
-  }
-
-  .sectionTitle {
-    margin: 0;
   }
 }
 

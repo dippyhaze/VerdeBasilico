@@ -242,14 +242,14 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   .ingredientsGrid {
     grid-template-columns: 1fr;
     /* Una colonna su tablet/mobile */
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 40rem) {
   .imageWrapper {
     height: 7.5rem;
   }
