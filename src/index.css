@@ -20,7 +20,10 @@
   --blue-mirtillo-light: #eff6ff;
   --blue-mirtillo-dark: #1e40af;
 
+  --bianco-latte: #ffffff;
+
   --text-muted: #64748b;
+  --text-muted-light: #f8fafc;
 }
 
 * {

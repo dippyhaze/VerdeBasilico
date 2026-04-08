@@ -42,15 +42,12 @@
 
   .wizardCard {
     order: 2;
-    /* Sposta il wizard sotto */
   }
 }
 
-/* Per Smartphone stretti (sotto i 40rem) */
 @media (max-width: 40rem) {
   .dashboardGrid {
     margin-top: 0.9375rem;
     padding: 0 0.625rem;
-    /* Un po' di padding laterale per non toccare i bordi */
   }
 }

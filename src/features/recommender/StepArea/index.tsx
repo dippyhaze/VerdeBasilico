@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './index.module.css';
 import { areaToCountryCode } from '../../../utils/recipeUtils';
 import StepHeader from '../../../components/StepHeader';
 import Loader from '../../../components/Loader';
+import styles from './index.module.css';
 
 interface Area {
   strArea: string;
@@ -21,11 +21,11 @@ const COMMON_AREAS = [
   { name: 'Spanish' }
 ];
 
-interface Props {
+interface StepAreaProps {
   onNext: (area: string) => void;
 }
 
-const StepArea: React.FC<Props> = ({ onNext }) => {
+const StepArea: React.FC<StepAreaProps> = ({ onNext }) => {
   const [areas, setAreas] = useState<Area[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
