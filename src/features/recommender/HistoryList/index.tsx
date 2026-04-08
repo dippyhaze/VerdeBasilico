@@ -1,6 +1,6 @@
 import React from 'react';
 import type { HistoryItem } from '../../../types';
-import { BadgeX } from 'lucide-react';
+
 import styles from './index.module.css';
 
 interface HistoryListProps {
@@ -10,17 +10,6 @@ interface HistoryListProps {
 
 
 const HistoryList: React.FC<HistoryListProps> = ({ items, onSelect }) => {
-
-
-  if (items.length === 0) {
-    return (
-      <div className={styles.emptyState}>
-        <BadgeX size={48} className={styles.emptyIcon} />
-        <p>La tua cronologia è vuota. Inizia a cercare!</p>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.historySection}>
       <div className={styles.list}>

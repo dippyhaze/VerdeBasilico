@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import type { Recipe } from '../../../types';
-import { fetchRecipeById, fetchRecipesByFilter } from '../../../api/mealApi';
 import { ArrowLeft, ThumbsUp, ThumbsDown, Utensils, Leaf, ChefHat } from 'lucide-react';
-import Loader from '../../../components/Loader';
+import { fetchRecipeById, fetchRecipesByFilter } from '../../../api/mealApi';
 import { pickRandom } from '../../../utils/recipeUtils';
 import ErrorState from '../../../components/ErrorState';
+import Loader from '../../../components/Loader';
+import type { Recipe } from '../../../types';
+
 import styles from './index.module.css';
 
 interface ResultViewProps {
@@ -82,7 +83,7 @@ const ResultView: React.FC<ResultViewProps> = ({ onFeedback }) => {
     if (recipe && recipe.ingredients.length > 4) {
       buttonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-  }, [showAllIngredients]);
+  }, [showAllIngredients, recipe]);
 
   if (loading) return <Loader text="Carichiamo la tua ricetta..." />;
   if (errorMessage || !recipe) return <ErrorState handleReset={handleReset}><div className={styles.errorState}>Ops! {errorMessage}</div></ErrorState>;

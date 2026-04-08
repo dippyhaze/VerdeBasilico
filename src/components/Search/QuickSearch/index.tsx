@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'; // Aggiungi useRef
-import { useDebounce } from '../../../hooks/useDebounce';
-import { searchRecipes } from '../../../api/mealApi';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, Loader2 } from 'lucide-react';
+import { searchRecipes } from '../../../api/mealApi';
+import { useDebounce } from '../../../hooks/useDebounce';
 import type { Recipe } from '../../../types';
+
 import styles from './index.module.css';
 
 interface QuickSearchProps {
@@ -38,7 +39,7 @@ const QuickSearch: React.FC<QuickSearchProps> = ({ onSelect }) => {
       if (debouncedTerm.length > 2) {
         setLoading(true);
         const results = await searchRecipes(debouncedTerm);
-        setSuggestions(results ? results.slice(0, 5) : []); // Aggiunto check per results null
+        setSuggestions(results ? results.slice(0, 5) : []);
         if (!results || results.length === 0) {
           setShowNotFound(true);
         }

@@ -12,7 +12,7 @@
   width: 100%;
   padding: 0.875rem 1.25rem 0.875rem 2.8125rem;
   border-radius: 0.75rem;
-  border: 0.0625rem solid #e2e8f0;
+  border: 0.0625rem solid var(--border);
   font-size: 1rem;
   outline: none;
   transition: all 0.2s;
@@ -28,7 +28,7 @@
   left: 0.9375rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 /* LA PARTE ANTI-REGRESSIONE */
@@ -40,7 +40,7 @@
   background: white;
   border-radius: 0.75rem;
   box-shadow: 0 0.625rem 1.5625rem rgba(0,0,0,0.1);
-  border: 0.0625rem solid #e2e8f0;
+  border: 0.0625rem solid var(--border);
   z-index: 100; /* Sta sopra al Wizard */
   list-style: none;
   padding: 0.5rem 0;

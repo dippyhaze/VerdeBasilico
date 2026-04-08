@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ChefHat, ArrowLeft } from 'lucide-react';
 import StepHeader from '../../../components/StepHeader';
 import Loader from '../../../components/Loader';
+
 import styles from './index.module.css';
 
 interface Category {
@@ -11,7 +12,6 @@ interface Category {
 }
 
 interface Props {
-  area: string;
   onNext: (cat: string) => void;
   onBack: () => void;
 }
@@ -53,7 +53,6 @@ const StepCategory: React.FC<Props> = ({ onNext, onBack }) => {
                   key={cat.idCategory}
                   type="button"
                   className={`${styles.pill} ${isActive ? styles.activePill : ''}`}
-                  // Passiamo l'indice come variabile CSS
                   data-index={index % 6}
                   onClick={() => handlePillClick(cat.strCategory)}
                 >

@@ -11,7 +11,7 @@ export interface Recipe {
   strMealThumb: string;
   strYoutube?: string;
   strSource?: string;
-  ingredients: string[]; // Array pulito che creeremo noi lato API
+  ingredients: string[];
 }
 
 export interface HistoryItem extends Recipe {

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, Heart, History, LayoutGrid, XCircle } from 'lucide-react';
-import HistoryList from '../HistoryList';
-import styles from './index.module.css';
-import type { HistoryItem } from '../../../types';
+import { BadgeX, ChevronDown, Heart, History, LayoutGrid, XCircle } from 'lucide-react';
 import { useResponsive } from '../../../hooks/useResponsive';
+import HistoryList from '../HistoryList';
+import type { HistoryItem } from '../../../types';
+
+import styles from './index.module.css';
 
 interface HistoryCardProps {
     history: HistoryItem[];
@@ -24,6 +25,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({ history, isHistoryOpen, setIs
         if (filter === 'disliked') return !item.liked;
         return true;
     });
+
     return (
         <section className={`${styles.historyCard} ${isHistoryOpen ? styles.isOpen : ''}`}>
             <div
@@ -38,7 +40,7 @@ const HistoryCard: React.FC<HistoryCardProps> = ({ history, isHistoryOpen, setIs
                         </h3>
                     </div>
                     {!(isMobile && !isHistoryOpen) && (
-                        <div 
+                        <div
                             className={styles.filterBar}
                             onClick={(e) => e.stopPropagation()}
                         >
@@ -71,9 +73,14 @@ const HistoryCard: React.FC<HistoryCardProps> = ({ history, isHistoryOpen, setIs
                 </div>
             </div>
             <div className={styles.accordionContent}>
-                <HistoryList items={filteredItems}
-                    onSelect={(id) => navigate(`/recipe/${id}`)}
-                />
+                {history.length > 0 ? (
+                    <HistoryList items={filteredItems} onSelect={(id) => navigate(`/recipe/${id}`)} />
+                ) : (
+                    <div className={styles.emptyState}>
+                        <BadgeX size={48} className={styles.emptyIcon} />
+                        <p>La tua cronologia è vuota. Inizia a cercare!</p>
+                    </div>
+                )}
             </div>
         </section>)
 };

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import Header from './components/Layout/Header';
-import Wizard from './features/recommender/Wizard';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import Header from './components/Layout/Header';
 import QuickSearch from './components/Search/QuickSearch';
 import ResultView from './features/recommender/ResultView';
 import HistoryCard from './features/recommender/HistoryCard';
+import Wizard from './features/recommender/Wizard';
 import type { HistoryItem, Recipe } from './types';
-import styles from './App.module.css';
 
+import styles from './App.module.css';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -34,9 +34,9 @@ const App: React.FC = () => {
     <div className={styles.appContainer}>
       <Header />
       <main className={styles.dashboardGrid}>
-        <div className={styles.fullWidthRow}>
+        <section className={styles.fullWidthRow}>
           <QuickSearch onSelect={(recipe) => navigate(`/recipe/${recipe.idMeal}`)} />
-        </div>
+        </section>
 
         <section className={styles.wizardCard}>
           <Routes>

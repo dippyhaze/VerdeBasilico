@@ -47,7 +47,7 @@
 .meta {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin: 2px 0 0 0;
+  margin: 0.75rem 0 0 0;
 }
 
 .badge {
@@ -72,25 +72,6 @@
 .disliked {
   background-color: var(--rosso-peperone-light);
   color: var(--rosso-peperone-dark);
-}
-
-.emptyState {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 3rem;
-  color: #bbb;
-  border: 2px dashed #eee;
-  border-radius: 1.5rem;
-  align-items: center;
-}
-
-.emptyIcon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 0.5rem;
 }
 
 @keyframes fadeIn {

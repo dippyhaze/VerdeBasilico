@@ -6,28 +6,6 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-.searchWrapper {
-  margin-bottom: 1rem;
-}
-
-.searchFilter {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  border: 0.0625rem solid var(--border);
-  font-size: 0.85rem;
-  outline: none;
-}
-
-.sectionLabel {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
 .pillContainer {
   display: flex;
   flex-wrap: wrap;
@@ -100,7 +78,7 @@
 
 .btnBack {
   flex: 1;
-  background: #ffffff;
+  background: var(--bianco-latte);
   border: 0.0625rem solid var(--border);
   color: var(--text-muted);
 }
@@ -109,11 +87,11 @@
   flex: 1.5;
   border: none;
   background-color: var(--verde-basilico);
-  color: #ffffff;
+  color: var(--bianco-latte);
 }
 
 .btnSubmit:disabled {
-  background-color: #cbd5e1;
+  background-color: var(--verde-basilico-light);
   cursor: not-allowed;
 }
 
