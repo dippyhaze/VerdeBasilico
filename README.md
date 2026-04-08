@@ -11,6 +11,7 @@ VerdeBasilico è un recipe recommender che permette agli utenti di scoprire rice
 - 📜 **Cronologia**: memorizza le ricerche recenti con feedback (like/dislike)
 - 🌐 **Bandiere**: visualizza il paese di provenienza della ricetta
 - 💾 **Persistenza**: salva la cronologia nel localStorage del browser
+- 📗 **Accessibilità**: E' possibile la navigazione attraverso metodi di accessibilità
 
 ## 🏗️ Architettura e Decisioni di Design
 
@@ -44,10 +45,12 @@ src/
 │       ├── StepCategory/  # Step 1: selezione categoria
 │       ├── StepArea/      # Step 2: selezione area
 │       ├── ResultView/    # Visualizzazione ricetta
+│       ├── HistoryCard/    # Sezione cronologia
 │       └── HistoryList/   # Lista cronologia
 ├── hooks/                 # Custom React hooks
 │   ├── useLocalStorage.ts # Persistenza dati
 │   └── useDebounce.ts     # Debouncing input
+│   └── useResponsive.ts   # Gestione MediaQuery
 ├── types/                 # Type definitions TypeScript
 │   └── index.ts           # Recipe, HistoryItem, Category, Area
 ├── utils/                 # Utility functions
@@ -80,6 +83,9 @@ App (routing + history state)
     │   ├── StepArea (seleziona area)
     │   └── [Random/Results View]
     └── ResultView/:idMeal (dettagli ricetta + feedback)
+└── HistoryCard
+    │   ├── HistoryList (lista cronologia)
+
 ```
 
 #### 3. **Persistenza - localStorage Hook**
@@ -96,53 +102,11 @@ App (routing + history state)
 - Delay configurabile (default: ~300ms in QuickSearch)
 - Evita troppe richieste API
 
-#### 5. **Filtro Combinato - Logica AND**
-```typescript
-// Wizard: Categoria AND Area
-// 1. Fetch ricette per area
-// 2. Fetch ricette per categoria
-// 3. Intersection via Set (O(n) instead of O(n²))
-```
-Scelta: **Set lookup** anziché nested loop per performance su grandi dataset.
-
-#### 6. **Styling**
+#### 5. **Styling**
 - **CSS Modules** per scoping locale
 - **Layout Grid**: App container responsive
 - **Accordion History**: collapsible con chevron animato
 
-### Type Definitions
-
-```typescript
-interface Recipe {
-  idMeal: string;
-  strMeal: string;
-  strCategory: string;
-  strArea: string;
-  strInstructions: string;
-  strMealThumb: string;
-  strYoutube?: string;
-  strSource?: string;
-  ingredients: string[]; // Normalizzato da API
-}
-
-interface HistoryItem extends Recipe {
-  liked: boolean;
-  timestamp: number;
-}
-
-interface RecipeSummary {
-  strMeal: string;
-  strMealThumb: string;
-  idMeal: string;
-}
-
-interface Category {
-  idCategory: string;
-  strCategory: string;
-  strCategoryThumb: string;
-  strCategoryDescription: string;
-}
-```
 
 ## 🚀 Istruzioni di Avvio
 
@@ -187,26 +151,12 @@ npm run lint
 - `react-dom@19.2.4` - DOM rendering
 - `react-router-dom@7.14.0` - Client-side routing
 - `lucide-react@1.7.0` - Icon library
-- `react-world-flags@1.6.0` - Flag display
 
 **Sviluppo**:
 - `typescript@5.9.3` - Type checking
 - `vite@8.0.1` - Build tool
 - `eslint@9.39.4` + `typescript-eslint@8.57.0` - Linting
 - `@vitejs/plugin-react@6.0.1` - React Fast Refresh
-
-## 🎨 Utilità e Helper
-
-### `areaToCountryCode`
-Mappa area di TheMealDB → codici ISO paese per flag rendering:
-```
-'Italian' → 'IT'
-'Japanese' → 'JP'
-... (31 paesi supportati)
-```
-
-### `pickRandom<T>`
-Seleziona elemento casuale da array — usato per suggerimento surprise nel Wizard.
 
 ## 📱 Funzionalità
 
@@ -216,15 +166,13 @@ Seleziona elemento casuale da array — usato per suggerimento surprise nel Wiza
 - Clicca su ricetta → vai a `/recipe/:idMeal`
 
 ### 2. Wizard (Workflow)
-- **Step 1**: Seleziona categoria (grid thumbnails)
-- **Step 2**: Seleziona area geografica (dropdown/list)
+- **Step 1**: Seleziona area geografica (grid thumbnails)
+- **Step 2**: Seleziona categoria (grid pills)
 - **Risultati**: Ricette che matchano ENTRAMBI i criteri
-- **Surprise**: Pulsante per ricetta casuale
 
 ### 3. ResultView
 - Visualizza ricetta completa
 - Ingredienti + misure
-- Link video YouTube (se disponibile)
 - Pulsanti Like/Dislike → salva in history
 
 ### 4. History
