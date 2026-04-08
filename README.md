@@ -23,7 +23,6 @@ VerdeBasilico è un recipe recommender che permette agli utenti di scoprire rice
 | **Build Tool** | Vite 8 | Performance, HMR veloce, bundling ottimizzato |
 | **Router** | React Router DOM 7 | Navigazione SPA senza page reload |
 | **UI Icons** | lucide-react 1.7.0 | Icone leggere e performanti |
-| **Flags** | react-world-flags 1.6.0 | Visualizzazione bandiere paesi |
 
 ### Struttura delle Cartelle
 
